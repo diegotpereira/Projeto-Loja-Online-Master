@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
     crossorigin="anonymous">
 </head>
@@ -56,7 +58,7 @@
             <input type="text" name="Unome" id=""><br>
         </pre>
         <pre>
-            <input type="text" name="nascimento" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${usuario.nascimento}"  />" /> <br /> 
+            <input type="text" name="nascimento" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${usuario.nascimento}" />" /> <br /> 
         </pre>
         <!-- <pre>
             <label for="">Data de Nascimento: </label>

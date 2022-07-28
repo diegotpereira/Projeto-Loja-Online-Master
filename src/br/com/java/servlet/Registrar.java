@@ -1,10 +1,11 @@
 package br.com.java.servlet;
 
 import java.io.*;
-import java.sql.Date;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,26 +27,22 @@ public class Registrar extends HttpServlet{
         resp.setContentType("text/hmtl");
         PrintWriter out = resp.getWriter();
 
+        Usuario usuario = new Usuario();
+
         String uid = req.getParameter("uid");
         String pwd = req.getParameter("pwd");
         String dica = req.getParameter("dica");
         String resposta = req.getParameter("resposta");
         String Pnome = req.getParameter("Pnome");
         String Unome = req.getParameter("Unome");
-        
-        // Date nascimento = (Date) Calendar.getInstance().getTime();
-        // DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        // String strDate = dateFormat.format(nascimento);
-        // strDate = req.getParameter("nascimento");
-        // String nascimento = req.getParameter("nascimento");
 
-        // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date nascimento = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("nascimento"));
+            usuario.setNascimento(nascimento);
 
-        // String aniversario = sdf.parse(nascimento).getTime();
-
-        // String dataEmTexto = req.getParameter("nascimento");
-        // Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
-
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
         
         String endereco = req.getParameter("endereco");
         String cidade = req.getParameter("cidade");
@@ -56,14 +53,14 @@ public class Registrar extends HttpServlet{
         String ccno = req.getParameter("ccno");
         String email = req.getParameter("email");
 
-        Usuario usuario = new Usuario();
+        
         usuario.setUid(uid);
         usuario.setPwd(pwd);
         usuario.setDica(dica);
         usuario.setResposta(resposta);
         usuario.setPnome(Pnome);
         usuario.setUnome(Unome);
-        // usuario.setNascimento(aniversario);
+        
         usuario.setEndereco(endereco);
         usuario.setCidade(cidade);
         usuario.setCep(cep);

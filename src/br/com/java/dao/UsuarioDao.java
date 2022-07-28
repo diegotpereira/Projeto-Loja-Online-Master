@@ -32,7 +32,7 @@ public class UsuarioDao {
         try {
             Connection con = UsuarioDao.getConnection();
 
-            String SQL = "INSERT INTO usuarios (usuarioid, pwd, dica, resposta, Pnome, Unome, endereco, cidade, cep, estado, pais, ccnome, ccno, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO usuarios (usuarioid, pwd, dica, resposta, Pnome, Unome, nascimento, endereco, cidade, cep, estado, pais, ccnome, ccno, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -42,15 +42,15 @@ public class UsuarioDao {
             ps.setString(4, usuario.getResposta());
             ps.setString(5, usuario.getPnome());
             ps.setString(6, usuario.getUnome());
-            // ps.setDate  (7, usuario.getNascimento());
-            ps.setString(7, usuario.getEndereco());
-            ps.setString(8, usuario.getCidade());
-            ps.setInt   (9, usuario.getCep());
-            ps.setString(10, usuario.getEstado());
-            ps.setString(11, usuario.getPais());
-            ps.setString(12, usuario.getCcnome());
-            ps.setString(13, usuario.getCcno());
-            ps.setString(14, usuario.getEmail());
+            ps.setDate  (7, new java.sql.Date (usuario.getNascimento().getTime()));
+            ps.setString(8, usuario.getEndereco());
+            ps.setString(9, usuario.getCidade());
+            ps.setInt   (10, usuario.getCep());
+            ps.setString(11, usuario.getEstado());
+            ps.setString(12, usuario.getPais());
+            ps.setString(13, usuario.getCcnome());
+            ps.setString(14, usuario.getCcno());
+            ps.setString(15, usuario.getEmail());
             
 
             status = ps.executeUpdate();
