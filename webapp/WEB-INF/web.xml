@@ -10,4 +10,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>Registrar.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Registrar</display-name>
+    <servlet-name>Registrar</servlet-name>
+    <servlet-class>br.com.java.servlet.Registrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registrar</servlet-name>
+    <url-pattern>/Registrar</url-pattern>
+  </servlet-mapping>
 </web-app>

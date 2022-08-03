@@ -15,19 +15,29 @@ import br.com.java.model.Usuario;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/Registrar")  
+//@WebServlet("/Registrar")  
 public class Registrar extends HttpServlet{
 
+    private static String LIST_USER = "/ProdLista1.jsp";
+    
+    public Registrar() {
+    	super();
+    	
+    	
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
         super.doPost(req, resp);
 
+
         resp.setContentType("text/hmtl");
         PrintWriter out = resp.getWriter();
 
         Usuario usuario = new Usuario();
+
+        
 
         String uid = req.getParameter("uid");
         String pwd = req.getParameter("pwd");
@@ -37,11 +47,12 @@ public class Registrar extends HttpServlet{
         String Unome = req.getParameter("Unome");
 
         try {
-            Date nascimento = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("nascimento"));
+            Date nascimento = new SimpleDateFormat("dd/MM/yyyy").parse(req.getParameter("nascimento"));
             usuario.setNascimento(nascimento);
 
         } catch (Exception e) {
             //TODO: handle exception
+            e.printStackTrace();
         }
         
         String endereco = req.getParameter("endereco");
@@ -73,11 +84,11 @@ public class Registrar extends HttpServlet{
         int status = UsuarioDao.salvar(usuario);
 
         if (status > 0) {
-            
-            out.print("<p>Grava��o realizada com sucesso!</p>");  
-        } else {
+			
+		   RequestDispatcher view = req.getRequestDispatcher(LIST_USER);
+	   
+	       view.forward(req, resp);
+		}
 
-            out.println("Desculpe! não foi possível salvar o registro");  
-        }
     }
 }
