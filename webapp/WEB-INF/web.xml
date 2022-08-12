@@ -9,6 +9,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>Registrar.jsp</welcome-file>
+    <welcome-file>Login.html</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -16,8 +18,18 @@
     <servlet-name>Registrar</servlet-name>
     <servlet-class>br.com.java.servlet.Registrar</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>br.com.java.servlet.Login</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Registrar</servlet-name>
     <url-pattern>/Registrar</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
   </servlet-mapping>
 </web-app>
